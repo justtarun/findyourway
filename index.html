@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Find Your Way</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
   <script>
     function toggleDetails(id, infoId) {
       const details = document.getElementById(id);
@@ -34,21 +35,16 @@
       document.getElementById('mobile-menu').classList.toggle('hidden');
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-b from-black to-gray-900 text-white">
-
-<!-- Background Music -->
-<audio id="background-music" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<body class="bg-black text-white">
 
 <!-- Navigation -->
 <nav class="bg-gray-900 p-4">
   <div class="flex justify-between items-center">
-    <h1 class="text-3xl font-bold text-white">Find Your Way</h1>
-    <button class="lg:hidden text-white" onclick="toggleMenu()">☰</button>
+    <h1 class="text-xl font-bold">Find Your Way</h1>
+    <button class="lg:hidden text-white" onclick="toggleMenu()">
+      ☰
+    </button>
     <ul class="hidden lg:flex gap-6 text-white">
       <li><a href="#home" class="hover:underline">Home</a></li>
       <li><a href="#profiles" class="hover:underline">Profiles</a></li>
@@ -63,19 +59,16 @@
 </nav>
 
 <div id="home" class="container mx-auto px-4 py-16 text-white">
-  <h1 class="text-5xl font-bold text-center mb-12 animate__animated animate__fadeIn animate__delay-1s">Find Your Way</h1>
-  <p class="text-center max-w-2xl mx-auto text-lg mb-20 animate__animated animate__fadeIn animate__delay-2s">
+  <h1 class="text-5xl font-bold text-center mb-12">Find Your Way</h1>
+  <p class="text-center max-w-2xl mx-auto text-lg mb-20">
     Explore the philosophies of modern martial artists forging their own paths. Take inspiration, learn their approaches, and craft your own unique expression.
   </p>
 
   <div id="profiles" class="space-y-24">
     <!-- Profile Template -->
-    <!-- Each profile below follows the same structure -->
-
-    <!-- Rory Miller -->
-    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer transform transition-transform hover:scale-105 hover:bg-gray-700" data-details-id="rory-details" data-info-id="rory-more">
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="rory-details" data-info-id="rory-more">
       <div class="flex flex-col lg:flex-row items-center gap-10">
-        <img src="https://source.unsplash.com/300x300/?martial,arts" alt="Rory Miller" class="rounded-xl w-full max-w-xs transition-all hover:scale-110" />
+        <img src="https://source.unsplash.com/300x300/?martial,arts" alt="Rory Miller" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
         <div>
           <h2 class="text-3xl font-semibold mb-4">Rory Miller</h2>
           <p class="mb-2 italic">"Train for real-life violence, not for the ring."</p>
@@ -85,17 +78,16 @@
         </div>
       </div>
       <div id="rory-details" class="hidden mt-6 text-gray-300">
-        <p>Rory Miller is a former corrections officer with extensive real-world experience in violence dynamics. He emphasizes training for reality rather than for sport...</p>
+        <p>Rory Miller is a former corrections officer with extensive real-world experience in violence dynamics. He emphasizes training for reality rather than for sport, breaking down how conflict actually plays out and what psychological preparation is needed. His writing is approachable and often challenges traditional martial dogma.</p>
         <div class="mt-4">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/6bL86QEvQd8" title="Rory Miller Video" allowfullscreen></iframe>
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/jD7A8kt4A8Y" title="Rory Miller Introduction" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
-    <!-- Tim Larkin -->
-    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer transform transition-transform hover:scale-105 hover:bg-gray-700" data-details-id="tim-details" data-info-id="tim-more">
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="tim-details" data-info-id="tim-more">
       <div class="flex flex-col lg:flex-row items-center gap-10">
-        <img src="https://source.unsplash.com/301x301/?selfdefense" alt="Tim Larkin" class="rounded-xl w-full max-w-xs transition-all hover:scale-110" />
+        <img src="https://source.unsplash.com/301x301/?selfdefense" alt="Tim Larkin" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
         <div>
           <h2 class="text-3xl font-semibold mb-4">Tim Larkin</h2>
           <p class="mb-2 italic">"Violence is rarely the answer, but when it is... it’s the only answer."</p>
@@ -105,17 +97,16 @@
         </div>
       </div>
       <div id="tim-details" class="hidden mt-6 text-gray-300">
-        <p>Tim Larkin teaches that you cannot reason with someone intent on harming you. His method centers on disabling an opponent's ability to continue aggression...</p>
+        <p>Tim Larkin teaches that you cannot reason with someone intent on harming you. His method centers on disabling an opponent's ability to continue aggression as quickly as possible using simple, brutal mechanics. His courses are especially focused on survival scenarios.</p>
         <div class="mt-4">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/WDHypi_eD_A" title="Tim Larkin Video" allowfullscreen></iframe>
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/ye8xFPUZ16Q" title="Tim Larkin Introduction" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
-    <!-- Geoff Thompson -->
-    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer transform transition-transform hover:scale-105 hover:bg-gray-700" data-details-id="geoff-details" data-info-id="geoff-more">
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="geoff-details" data-info-id="geoff-more">
       <div class="flex flex-col lg:flex-row items-center gap-10">
-        <img src="https://source.unsplash.com/302x302/?martial,arts" alt="Geoff Thompson" class="rounded-xl w-full max-w-xs transition-all hover:scale-110" />
+        <img src="https://source.unsplash.com/302x302/?martial,arts" alt="Geoff Thompson" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
         <div>
           <h2 class="text-3xl font-semibold mb-4">Geoff Thompson</h2>
           <p class="mb-2 italic">"Fear is the friend of exceptional people."</p>
@@ -125,29 +116,28 @@
         </div>
       </div>
       <div id="geoff-details" class="hidden mt-6 text-gray-300">
-        <p>Geoff Thompson developed a reputation for honesty about fear, violence, and the mental process of confrontation. He encourages internal work...</p>
+        <p>Once a nightclub doorman, Geoff Thompson developed a reputation for honesty about fear, violence, and the mental process of confrontation. He encourages internal work and emotional clarity as the basis for any physical readiness. His blend of martial realism and self-awareness is unique in the field.</p>
         <div class="mt-4">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/T6OJnZG3joA" title="Geoff Thompson Video" allowfullscreen></iframe>
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/vg9kQydZ5pQ" title="Geoff Thompson Introduction" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
-    <!-- Kelly McCann -->
-    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer transform transition-transform hover:scale-105 hover:bg-gray-700" data-details-id="kelly-details" data-info-id="kelly-more">
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="kelly-details" data-info-id="kelly-more">
       <div class="flex flex-col lg:flex-row items-center gap-10">
-        <img src="https://source.unsplash.com/303x303/?selfdefense" alt="Kelly McCann" class="rounded-xl w-full max-w-xs transition-all hover:scale-110" />
+        <img src="https://source.unsplash.com/303x303/?combatives" alt="Kelly McCann" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
         <div>
           <h2 class="text-3xl font-semibold mb-4">Kelly McCann</h2>
-          <p class="mb-2 italic">"Violence is a harsh tool, but it's effective when it's needed."</p>
-          <p class="mb-2"><strong>Focus:</strong> Combatives and self-defense tactics.</p>
-          <p class="mb-2"><strong>Notable Work:</strong> <em>Combatives for the Street</em></p>
+          <p class="mb-2 italic">"Simplicity under stress wins."</p>
+          <p class="mb-2"><strong>Focus:</strong> Combatives and military-grade personal security tactics.</p>
+          <p class="mb-2"><strong>Notable Work:</strong> <em>Combatives for Street Survival</em></p>
           <p id="kelly-more" class="text-blue-400 mt-2">More info...</p>
         </div>
       </div>
       <div id="kelly-details" class="hidden mt-6 text-gray-300">
-        <p>Kelly McCann specializes in straightforward, no-nonsense methods for handling dangerous encounters. His expertise is focused on realistic and effective tactics...</p>
+        <p>Kelly McCann, a veteran of both military and law enforcement, teaches realistic, no-nonsense combat tactics with a focus on efficiency. He emphasizes simplicity and decisiveness, believing that when faced with life-or-death situations, keeping things simple is the key to survival.</p>
         <div class="mt-4">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/cZi_YkXiMok" title="Kelly McCann Video" allowfullscreen></iframe>
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/ZYjFx_6ONzw" title="Kelly McCann Introduction" allowfullscreen></iframe>
         </div>
       </div>
     </div>
