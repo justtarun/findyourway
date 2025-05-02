@@ -1,121 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find Your Way</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background: #0c0c0c;
-      color: #eee;
-      font-family: 'Zen Dots', sans-serif;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-    }
-    header h1 {
-      font-size: 3rem;
-      color: #0ff;
-    }
-    .intro {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      text-align: center;
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-    }
-    .card {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      padding: 1rem;
-      border-radius: 1rem;
-      transition: 0.3s ease;
-    }
-    .card:hover {
-      border-color: #0ff;
-      box-shadow: 0 0 12px #0ff3;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .card h2 {
-      color: #0ff;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .card p {
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-    .highlight {
-      color: #0ff;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Find Your Flow</h1>
-    <p class="intro">
-      Explore unique perspectives in martial arts from modern-day practitioners. Learn from their insights and philosophies to shape your own practice.
-    </p>
-  </header>
-  <section class="grid">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Rory_Miller.jpg" alt="Rory Miller">
-      <h2>Rory Miller</h2>
-      <p><span class="highlight">Approach:</span> Conflict strategy, real-world violence.</p>
-      <p><span class="highlight">Key work:</span> <em>Meditations on Violence</em>.</p>
-      <p><span class="highlight">Essence:</span> Train for what actually happens, not fantasy.</p>
+---
+title: Find Your Way
+---
+
+<div class="container mx-auto px-4 py-8 text-white">
+  <h1 class="text-5xl font-bold text-center mb-8">Find Your Way</h1>
+  
+  <p class="text-center max-w-2xl mx-auto text-lg mb-12">
+    Explore the philosophies of modern martial artists forging their own paths. Take inspiration, learn their approaches, and craft your own unique expression.
+  </p>
+
+  <div class="grid gap-10 md:grid-cols-1">
+    <!-- Rory Miller -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-semibold mb-2">Rory Miller</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Rory_Miller.jpg" alt="Rory Miller" class="rounded-xl w-full max-w-md mx-auto mb-4" />
+      <p class="mb-2 italic">"Train for real-life violence, not for the ring."</p>
+      <p><strong>Focus:</strong> Real-world violence and conflict management.</p>
+      <p><strong>Notable Work:</strong> <em>Meditations on Violence</em></p>
+      <a href="https://www.chirontraining.com/" class="text-blue-400 underline mt-2 inline-block">Visit Chiron Training</a>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Tim_Larkin.jpg" alt="Tim Larkin">
-      <h2>Tim Larkin</h2>
-      <p><span class="highlight">Approach:</span> Target-focused training (TFT).</p>
-      <p><span class="highlight">Key work:</span> <em>When Violence is the Answer</em>.</p>
-      <p><span class="highlight">Essence:</span> Violence can be a tool for protection, not emotion.</p>
+
+    <!-- Tim Larkin -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-semibold mb-2">Tim Larkin</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Tim_Larkin.jpg" alt="Tim Larkin" class="rounded-xl w-full max-w-md mx-auto mb-4" />
+      <p class="mb-2 italic">"Violence is rarely the answer, but when it is... it’s the only answer."</p>
+      <p><strong>Focus:</strong> Target Focus Training, self-protection.</p>
+      <p><strong>Notable Work:</strong> <em>When Violence is the Answer</em></p>
+      <a href="https://targetfocustraining.com/" class="text-blue-400 underline mt-2 inline-block">Visit Target Focus Training</a>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Jack_Dempsey.jpg" alt="Geoff Thompson">
-      <h2>Geoff Thompson</h2>
-      <p><span class="highlight">Approach:</span> Reality-based self defense, fear control.</p>
-      <p><span class="highlight">Key work:</span> <em>The Fence</em>, <em>Watch My Back</em>.</p>
-      <p><span class="highlight">Essence:</span> Awareness and managing fear is as important as technique.</p>
+
+    <!-- Geoff Thompson -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-semibold mb-2">Geoff Thompson</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Jack_Dempsey.jpg" alt="Geoff Thompson" class="rounded-xl w-full max-w-md mx-auto mb-4" />
+      <p class="mb-2 italic">"Fear is the friend of exceptional people."</p>
+      <p><strong>Focus:</strong> Reality-based self-defense and fear management.</p>
+      <p><strong>Notable Work:</strong> <em>The Fence</em>, <em>Watch My Back</em></p>
+      <a href="https://en.wikipedia.org/wiki/Geoff_Thompson_(writer)" class="text-blue-400 underline mt-2 inline-block">Read More</a>
     </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kelly_McCann.jpg" alt="Kelly McCann">
-      <h2>Kelly McCann</h2>
-      <p><span class="highlight">Approach:</span> Combatives, military background.</p>
-      <p><span class="highlight">Key work:</span> Crucible Training, Urban Combatives.</p>
-      <p><span class="highlight">Essence:</span> Fast, simple, effective under pressure.</p>
+
+    <!-- Kelly McCann -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-semibold mb-2">Kelly McCann</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kelly_McCann.jpg" alt="Kelly McCann" class="rounded-xl w-full max-w-md mx-auto mb-4" />
+      <p class="mb-2 italic">"Simplicity under stress wins."</p>
+      <p><strong>Focus:</strong> Combatives and military-grade personal security tactics.</p>
+      <p><strong>Notable Work:</strong> <em>Combatives for Street Survival</em></p>
+      <a href="https://en.wikipedia.org/wiki/Kelly_McCann" class="text-blue-400 underline mt-2 inline-block">Learn More</a>
     </div>
-  </section>
-  <section class="intro">
-    <h2>Submit Your Path</h2>
-    <p>
-      Inspired by these approaches? Combine what resonates or share your own journey. We're building a collection of evolving paths in martial study.
-    </p>
-    <!-- Future form or submission interface placeholder -->
-  </section>
-  <footer>
-    &copy; 2025 FindYourWay.tarun.mov — Site under construction. Video summaries coming soon.
-  </footer>
-</body>
-</html>
+  </div>
+
+  <div class="mt-16 text-center">
+    <h3 class="text-2xl font-bold mb-4">Submit Your Way</h3>
+    <p class="mb-4">Have your own principles or path? Share your training perspective and philosophy with others.</p>
+    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Submit Your Way</a>
+  </div>
+</div>
