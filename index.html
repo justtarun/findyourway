@@ -6,104 +6,154 @@
   <title>Find Your Way</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    function toggleDetails(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('hidden');
+    function toggleDetails(id, infoId) {
+      const details = document.getElementById(id);
+      const infoText = document.getElementById(infoId);
+      details.classList.toggle('hidden');
+      if (details.classList.contains('hidden')) {
+        infoText.classList.remove('hidden');
+      } else {
+        infoText.classList.add('hidden');
+      }
+    }
+
+    function setupProfileClicks() {
+      const profileBoxes = document.querySelectorAll('.profile-box');
+      profileBoxes.forEach(box => {
+        box.addEventListener('click', () => {
+          const detailsId = box.getAttribute('data-details-id');
+          const infoId = box.getAttribute('data-info-id');
+          toggleDetails(detailsId, infoId);
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', setupProfileClicks);
+
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
     }
   </script>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-black text-white">
 
-  <div class="container mx-auto px-6 py-16 text-white max-w-5xl">
-    <h1 class="text-5xl font-bold text-center mb-10">Find Your Way</h1>
-    <p class="text-center text-lg text-gray-300 mb-20">
-      Discover contemporary martial artists who’ve carved their own path. Learn their methods, gain insight, and define your own expression.
-    </p>
+<!-- Navigation -->
+<nav class="bg-gray-900 p-4">
+  <div class="flex justify-between items-center">
+    <h1 class="text-xl font-bold">Find Your Way</h1>
+    <button class="lg:hidden text-white" onclick="toggleMenu()">
+      ☰
+    </button>
+    <ul class="hidden lg:flex gap-6 text-white">
+      <li><a href="#home" class="hover:underline">Home</a></li>
+      <li><a href="#profiles" class="hover:underline">Profiles</a></li>
+      <li><a href="#submit" class="hover:underline">Submit Your Way</a></li>
+    </ul>
+  </div>
+  <ul id="mobile-menu" class="lg:hidden hidden mt-2 space-y-2">
+    <li><a href="#home" class="block hover:underline">Home</a></li>
+    <li><a href="#profiles" class="block hover:underline">Profiles</a></li>
+    <li><a href="#submit" class="block hover:underline">Submit Your Way</a></li>
+  </ul>
+</nav>
 
-    <!-- Martial Artists List -->
-    <div class="space-y-20">
+<div id="home" class="container mx-auto px-4 py-16 text-white">
+  <h1 class="text-5xl font-bold text-center mb-12">Find Your Way</h1>
+  <p class="text-center max-w-2xl mx-auto text-lg mb-20">
+    Explore the philosophies of modern martial artists forging their own paths. Take inspiration, learn their approaches, and craft your own unique expression.
+  </p>
 
-      <!-- Rory Miller -->
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
-        <div class="flex flex-col md:flex-row gap-8">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Rory_Miller.jpg" alt="Rory Miller" class="rounded-xl w-full md:w-64 cursor-pointer hover:scale-105 transition-transform" onclick="toggleDetails('rory-details')" />
-          <div class="flex-1">
-            <h2 class="text-3xl font-semibold cursor-pointer hover:underline" onclick="toggleDetails('rory-details')">Rory Miller</h2>
-            <p class="italic mb-2 text-gray-400">"Train for real-life violence, not for the ring."</p>
-            <p><strong>Focus:</strong> Conflict management & violence dynamics</p>
-            <p><strong>Notable Work:</strong> <em>Meditations on Violence</em></p>
-            <div id="rory-details" class="hidden mt-4 text-gray-300 space-y-2">
-              <p>Former corrections officer Rory Miller explores the realities of violence and self-protection from a psychological and situational awareness standpoint.</p>
-              <p>His practical mindset has influenced countless self-defense instructors looking to go beyond form and into function.</p>
-              <a href="https://chirontraining.com/Site/Home.html" target="_blank" class="text-blue-400 underline">Visit Rory's site</a>
-            </div>
-          </div>
+  <div id="profiles" class="space-y-24">
+    <!-- Profile Template -->
+    <!-- Each profile below follows the same structure -->
+
+    <!-- Rory Miller -->
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="rory-details" data-info-id="rory-more">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <img src="https://source.unsplash.com/300x300/?martial,arts" alt="Rory Miller" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
+        <div>
+          <h2 class="text-3xl font-semibold mb-4">Rory Miller</h2>
+          <p class="mb-2 italic">"Train for real-life violence, not for the ring."</p>
+          <p class="mb-2"><strong>Focus:</strong> Real-world violence and conflict management.</p>
+          <p class="mb-2"><strong>Notable Work:</strong> <em>Meditations on Violence</em></p>
+          <p id="rory-more" class="text-blue-400 mt-2">More info...</p>
         </div>
       </div>
-
-      <!-- Tim Larkin -->
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
-        <div class="flex flex-col md:flex-row gap-8">
-          <img src="https://www.targetfocustraining.com/wp-content/uploads/2016/03/TimLarkin.jpg" alt="Tim Larkin" class="rounded-xl w-full md:w-64 cursor-pointer hover:scale-105 transition-transform" onclick="toggleDetails('tim-details')" />
-          <div class="flex-1">
-            <h2 class="text-3xl font-semibold cursor-pointer hover:underline" onclick="toggleDetails('tim-details')">Tim Larkin</h2>
-            <p class="italic mb-2 text-gray-400">"Violence is rarely the answer, but when it is... it’s the only answer."</p>
-            <p><strong>Focus:</strong> Self-protection & physical incapacitation</p>
-            <p><strong>Notable Work:</strong> <em>When Violence Is the Answer</em></p>
-            <div id="tim-details" class="hidden mt-4 text-gray-300 space-y-2">
-              <p>Larkin emphasizes that when you are dealing with true predators, your only option may be immediate and effective violence.</p>
-              <p>His training breaks down the human body as a mechanical system, identifying vulnerabilities to exploit during violent encounters.</p>
-              <a href="https://www.targetfocustraining.com" target="_blank" class="text-blue-400 underline">Visit Tim's site</a>
-            </div>
-          </div>
+      <div id="rory-details" class="hidden mt-6 text-gray-300">
+        <p>Rory Miller is a former corrections officer with extensive real-world experience in violence dynamics. He emphasizes training for reality rather than for sport, breaking down how conflict actually plays out and what psychological preparation is needed. His writing is approachable and often challenges traditional martial dogma.</p>
+        <div class="mt-4">
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Placeholder video for Rory Miller" allowfullscreen></iframe>
         </div>
       </div>
-
-      <!-- Geoff Thompson -->
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
-        <div class="flex flex-col md:flex-row gap-8">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Geoff_Thompson_2011.jpg/800px-Geoff_Thompson_2011.jpg" alt="Geoff Thompson" class="rounded-xl w-full md:w-64 cursor-pointer hover:scale-105 transition-transform" onclick="toggleDetails('geoff-details')" />
-          <div class="flex-1">
-            <h2 class="text-3xl font-semibold cursor-pointer hover:underline" onclick="toggleDetails('geoff-details')">Geoff Thompson</h2>
-            <p class="italic mb-2 text-gray-400">"Fear is the friend of exceptional people."</p>
-            <p><strong>Focus:</strong> Fear control, self-defense, inner work</p>
-            <p><strong>Notable Work:</strong> <em>The Fence</em>, <em>Watch My Back</em></p>
-            <div id="geoff-details" class="hidden mt-4 text-gray-300 space-y-2">
-              <p>Geoff’s teachings begin with understanding fear. His experience as a doorman helped him distill real-world confrontations into mental and physical simplicity.</p>
-              <p>He blends psychological insights with raw experience, creating an approach rooted in emotional resilience and preparedness.</p>
-              <a href="https://geoffthompson.com" target="_blank" class="text-blue-400 underline">Visit Geoff's site</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Kelly McCann -->
-      <div class="bg-gray-900 p-8 rounded-2xl shadow-xl">
-        <div class="flex flex-col md:flex-row gap-8">
-          <img src="https://static.wixstatic.com/media/c4d92d_6f682d2448e94ac3a6cf2db95c2b4a07~mv2.jpg" alt="Kelly McCann" class="rounded-xl w-full md:w-64 cursor-pointer hover:scale-105 transition-transform" onclick="toggleDetails('kelly-details')" />
-          <div class="flex-1">
-            <h2 class="text-3xl font-semibold cursor-pointer hover:underline" onclick="toggleDetails('kelly-details')">Kelly McCann</h2>
-            <p class="italic mb-2 text-gray-400">"Simplicity under stress wins."</p>
-            <p><strong>Focus:</strong> Combatives, executive protection, minimalist tactics</p>
-            <p><strong>Notable Work:</strong> <em>Combatives for Street Survival</em></p>
-            <div id="kelly-details" class="hidden mt-4 text-gray-300 space-y-2">
-              <p>McCann distills violence down to its most essential: eliminate the threat quickly using tools that work under adrenaline and chaos.</p>
-              <p>He speaks clearly to both military and civilian audiences and maintains a no-frills, stress-tested approach.</p>
-              <a href="https://www.kembativz.com" target="_blank" class="text-blue-400 underline">Visit Kelly's site</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Submit Your Way -->
-    <div class="mt-28 text-center">
-      <h3 class="text-2xl font-bold mb-3">Submit Your Way</h3>
-      <p class="mb-4 text-gray-400">Have your own philosophy or system? Share how you train, think, and apply martial ideas to your life.</p>
-      <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full">Submit Your Way</a>
+    <!-- Tim Larkin -->
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="tim-details" data-info-id="tim-more">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <img src="https://source.unsplash.com/301x301/?selfdefense" alt="Tim Larkin" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
+        <div>
+          <h2 class="text-3xl font-semibold mb-4">Tim Larkin</h2>
+          <p class="mb-2 italic">"Violence is rarely the answer, but when it is... it’s the only answer."</p>
+          <p class="mb-2"><strong>Focus:</strong> Target Focus Training, self-protection.</p>
+          <p class="mb-2"><strong>Notable Work:</strong> <em>When Violence is the Answer</em></p>
+          <p id="tim-more" class="text-blue-400 mt-2">More info...</p>
+        </div>
+      </div>
+      <div id="tim-details" class="hidden mt-6 text-gray-300">
+        <p>Tim Larkin teaches that you cannot reason with someone intent on harming you. His method centers on disabling an opponent's ability to continue aggression as quickly as possible using simple, brutal mechanics. His courses are especially focused on survival scenarios.</p>
+        <div class="mt-4">
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Placeholder video for Tim Larkin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geoff Thompson -->
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="geoff-details" data-info-id="geoff-more">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <img src="https://source.unsplash.com/302x302/?martial,arts" alt="Geoff Thompson" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
+        <div>
+          <h2 class="text-3xl font-semibold mb-4">Geoff Thompson</h2>
+          <p class="mb-2 italic">"Fear is the friend of exceptional people."</p>
+          <p class="mb-2"><strong>Focus:</strong> Reality-based self-defense and fear management.</p>
+          <p class="mb-2"><strong>Notable Work:</strong> <em>The Fence</em>, <em>Watch My Back</em></p>
+          <p id="geoff-more" class="text-blue-400 mt-2">More info...</p>
+        </div>
+      </div>
+      <div id="geoff-details" class="hidden mt-6 text-gray-300">
+        <p>Once a nightclub doorman, Geoff Thompson developed a reputation for honesty about fear, violence, and the mental process of confrontation. He encourages internal work and emotional clarity as the basis for any physical readiness. His blend of martial realism and self-awareness is unique in the field.</p>
+        <div class="mt-4">
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Placeholder video for Geoff Thompson" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kelly McCann -->
+    <div class="bg-gray-800 p-10 rounded-2xl shadow-lg profile-box cursor-pointer" data-details-id="kelly-details" data-info-id="kelly-more">
+      <div class="flex flex-col lg:flex-row items-center gap-10">
+        <img src="https://source.unsplash.com/303x303/?combatives" alt="Kelly McCann" class="rounded-xl w-full max-w-xs hover:scale-105 transition-transform" />
+        <div>
+          <h2 class="text-3xl font-semibold mb-4">Kelly McCann</h2>
+          <p class="mb-2 italic">"Simplicity under stress wins."</p>
+          <p class="mb-2"><strong>Focus:</strong> Combatives and military-grade personal security tactics.</p>
+          <p class="mb-2"><strong>Notable Work:</strong> <em>Combatives for Street Survival</em></p>
+          <p id="kelly-more" class="text-blue-400 mt-2">More info...</p>
+        </div>
+      </div>
+      <div id="kelly-details" class="hidden mt-6 text-gray-300">
+        <p>McCann is a former Marine and security consultant known for boiling down techniques to only what works when chaos erupts. He’s not flashy—just effective. His teachings favor gross motor skills under pressure and minimalist approaches that hold up even in extreme conditions.</p>
+        <div class="mt-4">
+          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Placeholder video for Kelly McCann" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div id="submit" class="mt-32 text-center">
+    <h3 class="text-2xl font-bold mb-4">Submit Your Way</h3>
+    <p class="mb-4">Have your own principles or path? Share your training perspective and philosophy with others.</p>
+    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full">Submit Your Way</a>
+  </div>
+</div>
 
 </body>
 </html>
